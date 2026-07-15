@@ -192,6 +192,7 @@ $onlineUsers = zombie_active_gateway_users();
             font-size: 0.82rem;
             font-weight: 800;
             letter-spacing: 0.08em;
+            text-decoration: none;
             text-transform: uppercase;
         }
 
@@ -283,7 +284,7 @@ $onlineUsers = zombie_active_gateway_users();
             <div class="signal" aria-hidden="true"></div>
             <div class="chips" aria-label="Service status">
                 <span class="chip"><strong>Online</strong></span>
-                <span class="chip user-count">Users: <strong><?= (int)$onlineUsers ?></strong></span>
+                <a class="chip user-count" href="/users.php">Users: <strong><?= (int)$onlineUsers ?></strong></a>
                 <span class="chip">POST /gateway.php</span>
                 <span class="chip">Render</span>
             </div>

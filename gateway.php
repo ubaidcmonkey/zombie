@@ -4,7 +4,8 @@ session_start();
 require 'vendor/autoload.php';
 require_once __DIR__ . '/gateway_users.php';
 
-zombie_track_gateway_user();
+$gatewayIp = zombie_track_gateway_user();
+zombie_enforce_gateway_access($gatewayIp);
 
 if (!class_exists('Google\Protobuf\RepeatedField', true)) {
     class_alias('Google\Protobuf\Internal\RepeatedField', 'Google\Protobuf\RepeatedField');
