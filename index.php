@@ -1,5 +1,8 @@
 <?php
 http_response_code(200);
+require_once __DIR__ . '/gateway_users.php';
+
+$onlineUsers = zombie_active_gateway_users();
 ?>
 <!doctype html>
 <html lang="en">
@@ -196,6 +199,12 @@ http_response_code(200);
             color: var(--green);
         }
 
+        .user-count {
+            color: var(--acid);
+            border-color: rgba(200, 255, 77, 0.38);
+            box-shadow: 0 0 30px rgba(200, 255, 77, 0.12);
+        }
+
         @keyframes scan {
             from { background-position: 0 0, 0 0; }
             to { background-position: 0 80px, 0 0; }
@@ -274,6 +283,7 @@ http_response_code(200);
             <div class="signal" aria-hidden="true"></div>
             <div class="chips" aria-label="Service status">
                 <span class="chip"><strong>Online</strong></span>
+                <span class="chip user-count">Users: <strong><?= (int)$onlineUsers ?></strong></span>
                 <span class="chip">POST /gateway.php</span>
                 <span class="chip">Render</span>
             </div>

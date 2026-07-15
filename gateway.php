@@ -2,6 +2,9 @@
 header('Content-Type: application/json');
 session_start();
 require 'vendor/autoload.php';
+require_once __DIR__ . '/gateway_users.php';
+
+zombie_track_gateway_user();
 
 if (!class_exists('Google\Protobuf\RepeatedField', true)) {
     class_alias('Google\Protobuf\Internal\RepeatedField', 'Google\Protobuf\RepeatedField');
